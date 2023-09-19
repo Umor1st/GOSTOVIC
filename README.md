@@ -8,19 +8,17 @@
 ## Скачивам нужные библиотеки, помещаем файлы в одну папку и запускаем main.py
 
 Для linux:
-```
-sudo apt install python3
-sudo apt install pip
-pip install telebot
-cd .../your_directory
-python3 main.py
+```console
+# apt install python3
+# apt install python3-pip
+$ pip3 install -r requirements.txt
+$ python3 main.py # ./main.py
 ```
 
 Для Windows:
-```
-// Установите python с python.org: https://www.python.org/downloads/
+```console
+rem Установите python с python.org: https://www.python.org/downloads/
 pip install telebot
-cd .../your_directory
 python main.py
 ```
 

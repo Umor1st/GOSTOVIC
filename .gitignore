@@ -1,0 +1,7 @@
+#python misc
+__pycache__/
+*.py[cod]
+*$py.class
+
+# user data
+api_key.txt

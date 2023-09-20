@@ -1,107 +1,127 @@
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-# Короче, здесь расположены все клавиатуры с кнопками, которые используются в боте
-# Для клав характерно добавление кнопок вида: [[BUTTON_FUNC],[BUTTON_FUNC]]
+def generate_markup(mk_dict_arr):
+    buttons = []
+    for row in mk_dict_arr:
+        row_arr = []
+        for button_text, button_callback in row.items():
+            row_arr.append(InlineKeyboardButton(
+                text=button_text, callback_data=button_callback))
+        buttons.append(row_arr)
+    return buttons
 
 
 def markup_main():
-    markup_main_buttons = [[InlineKeyboardButton(text="Cтудент",callback_data="Student"),
-                            InlineKeyboardButton(text="Ученик",callback_data="School")],
-                           [InlineKeyboardButton(text="stop",callback_data="back")]]
-    # Создаем клавиатуру и return значение
-    markup_main = InlineKeyboardMarkup(keyboard=markup_main_buttons)
-    return markup_main
+    markup_buttons =generate_markup([{"Cтудент": "Student",
+                       "Ученик": "School"},
+                      {"stop": "back"}])
+    return InlineKeyboardMarkup(keyboard=markup_buttons)
 
 # Inline клавиатура для видов годов
+
+
 def markup_years():
-    markup_years_buttons = [[InlineKeyboardButton(text="2003",callback_data="2003"),
-                            InlineKeyboardButton(text="2008",callback_data="2008"),
-                            InlineKeyboardButton(text="2018",callback_data="2018")],
-                           [InlineKeyboardButton(text="back",callback_data="back")]]
-    # Создаем клавиатуру и return значение
-    markup_years = InlineKeyboardMarkup(keyboard=markup_years_buttons)
-    return markup_years
+    markup_buttons =generate_markup([{"2003": "2003",
+                       "2008": "2008",
+                       "2018": "2018"},
+                      {"back": "back"}])
+    return InlineKeyboardMarkup(keyboard=markup_buttons)
 
 # Inline клавиатура для видов литератур госта 2003
+
+
 def markup_2003():
-    markup_g2003_buttons = [[InlineKeyboardButton(text="Журнал",callback_data="2003_journal"),
-                             InlineKeyboardButton(text="Книга",callback_data="2003_book"),
-                             InlineKeyboardButton(text="Интернет ресурс",callback_data="2003_ethres")],
-                            [InlineKeyboardButton(text="Диссертация",callback_data="2003_disert"),
-                             InlineKeyboardButton(text="Автореферат",callback_data="2003_autoref")],
-                            [InlineKeyboardButton(text="Законодательные материалы",callback_data="2003_zakun")],
-                            [InlineKeyboardButton(text="back",callback_data="back")]]
-    markup_2003 = InlineKeyboardMarkup(keyboard=markup_g2003_buttons)
-    return markup_2003
+    markup_buttons =generate_markup([{"Журнал": "2003_journal",
+                       "Книга": "2003_book",
+                       "Интернет ресурс": "2003_ethres"},
+                      {"Диссертация": "2003_disert",
+                       "Автореферат": "2003_autoref"},
+                      {"Законодательные материалы": "2003_zakun"},
+                      {"back": "back"}])
+    return InlineKeyboardMarkup(keyboard=markup_buttons)
 
 # Inline клавиатура для видов литератур госта 2008
+
+
 def markup_2008():
-    markup_g2008_buttons = [[InlineKeyboardButton(text="Журнал",callback_data="2008_journal"),
-                             InlineKeyboardButton(text="Книга",callback_data="2008_book"),
-                             InlineKeyboardButton(text="Интернет ресурс",callback_data="2008_ethres")],
-                            [InlineKeyboardButton(text="Автореферат",callback_data="2008_aftoref"),
-                             InlineKeyboardButton(text="Диссертация",callback_data="2008_disert")],
-                            [InlineKeyboardButton(text="back",callback_data="back")]]
-    markup_2008 = InlineKeyboardMarkup(keyboard=markup_g2008_buttons)
-    return markup_2008
+    markup_buttons =generate_markup([{"Журнал": "2008_journal",
+                       "Книга": "2008_book",
+                       "Интернет ресурс": "2008_ethres"},
+                      {"Автореферат": "2008_aftoref",
+                       "Диссертация": "2008_disert"},
+                      {"back": "back"}])
+
+    return InlineKeyboardMarkup(keyboard=markup_buttons)
+
 # Inline клавиатура для видов литератур госта 2018
+
+
 def markup_2018():
-    markup_g2018_buttons = [[InlineKeyboardButton(text="Журнал",callback_data="2018_journal"),
-                             InlineKeyboardButton(text="Книга",callback_data="2018_book"),
-                             InlineKeyboardButton(text="Интернет ресурс",callback_data="2018_ethres")],
-                            [InlineKeyboardButton(text="Автореферат",callback_data="2018_aftoref"),
-                             InlineKeyboardButton(text="Диссертация",callback_data="2018_disert")],
-                            [InlineKeyboardButton(text="back",callback_data="back")]]
-    markup_2018 = InlineKeyboardMarkup(keyboard=markup_g2018_buttons)
-    return markup_2018
+    markup_buttons =generate_markup([{"Журнал": "2018_journal",
+                       "Книга": "2018_book",
+                       "Интернет ресурс": "2018_ethres"},
+                      {"Автореферат": "2018_aftoref",
+                       "Диссертация": "2018_disert"},
+                      {"back": "back"}])
+
+    return InlineKeyboardMarkup(keyboard=markup_buttons)
 
 # Inline клавиатура для видов книг госта 2003
+
+
 def book_2003():
-    markup_book_2003_buttons = [[InlineKeyboardButton(text="Книга - обыч.",callback_data="2003_book_normal")],
-                                [InlineKeyboardButton(text="Том из многотомного издания",callback_data="2003_mnogotom")],
-                                [InlineKeyboardButton(text="back",callback_data="back")]]
-    markup_book_2003 = InlineKeyboardMarkup(keyboard=markup_book_2003_buttons)
-    return markup_book_2003
+    markup_buttons =generate_markup([{"Книга - обыч.": "2003_book_normal"},
+                      {"Том из многотомного издания": "2003_mnogotom"},
+                      {"back": "back"}])
+
+    return InlineKeyboardMarkup(keyboard=markup_buttons)
 
 # Inline клавиатура для видов многотомных книг госта 2003
+
+
 def book_mnogotom_2003():
-    markup_book_mnogotom_2003_buttons = [[InlineKeyboardButton(text="По томам",callback_data="2003_mnogotom_toms")],
-                                         [InlineKeyboardButton(text="По частям",callback_data="2003_mnogotom_chapters")],
-                                         [InlineKeyboardButton(text="back",callback_data="back")]]
-    markup_book_mnogotom_2003 = InlineKeyboardMarkup(keyboard=markup_book_mnogotom_2003_buttons)
-    return markup_book_mnogotom_2003
+    markup_buttons =generate_markup([{"По томам": "2003_mnogotom_toms"},
+                      {"По частям": "2003_mnogotom_chapters"},
+                      {"back": "back"}])
+
+    return InlineKeyboardMarkup(keyboard=markup_buttons)
 
 # Inline клавиатура для видов законодательных материалов госта 2003
+
+
 def zakon_2003():
-    markup_zakon_2003_buttons = [[InlineKeyboardButton(text="Федеральный документ",callback_data="2003_zakun_document")],
-                                 [InlineKeyboardButton(text="Федеральный закон",callback_data="2003_zakun_federation")],
-                                 [InlineKeyboardButton(text="Федеральный закон(интернет рес.)",callback_data="2003_zakun_federation_eth")],
-                                 [InlineKeyboardButton(text="Постановление",callback_data="2003_zakun_postan")],
-                                 [InlineKeyboardButton(text="back",callback_data="back")]]
-    markup_zakon_2003 = InlineKeyboardMarkup(keyboard=markup_zakon_2003_buttons)
-    return markup_zakon_2003
+    markup_buttons =generate_markup([{"Федеральный документ": "2003_zakun_document"},
+                      {"Федеральный закон": "2003_zakun_federation"},
+                      {"Федеральный закон(интернет рес.)": "2003_zakun_federation_eth"},
+                      {"Постановление": "2003_zakun_postan"},
+                      {"back": "back"}])
+
+    return InlineKeyboardMarkup(keyboard=markup_buttons)
 
 # Inline клавиатура для видов книг госта 2008
+
+
 def book_2008():
-    markup_book_2008_buttons = [[InlineKeyboardButton(text="Книга - Обыч.",callback_data="2008_book_normal"),
-                                 InlineKeyboardButton(text="Книга - ЭБС",callback_data="2008_book_EBC")],
-                                [InlineKeyboardButton(text="Том из многотомного издания",callback_data="2008_tom_iz_mnogotom")],
-                                [InlineKeyboardButton(text="back",callback_data="back")]]
-    markup_book_2008 = InlineKeyboardMarkup(keyboard=markup_book_2008_buttons)
-    return markup_book_2008
+    markup_buttons =generate_markup([{"Книга - Обыч.": "2008_book_normal",
+                       "Книга - ЭБС": "2008_book_EBC"},
+                      {"Том из многотомного издания": "2008_tom_iz_mnogotom"},
+                      {"back": "back"}])
+
+    return InlineKeyboardMarkup(keyboard=markup_buttons)
 
 # Inline клавиатура для видов книг госта 2018
+
+
 def book_2018():
-    markup_book_2018_buttons = [[InlineKeyboardButton(text="Книга - Обыч.",callback_data="2018_book_normal")],
-                                [InlineKeyboardButton(text="Том из многотомного издания",callback_data="2018_tom_iz_mnogotom")],
-                                [InlineKeyboardButton(text="back",callback_data="back")]]
-    markup_book_2018 = InlineKeyboardMarkup(keyboard=markup_book_2018_buttons)
-    return markup_book_2018
+    markup_buttons =generate_markup([{"Книга - Обыч.": "2018_book_normal"},
+                      {"Том из многотомного издания": "2018_tom_iz_mnogotom"},
+                      {"back": "back"}])
+
+    return InlineKeyboardMarkup(keyboard=markup_buttons)
 
 # Специальная одиночная кнопка back для неразработанных участков кода
+
+
 def back():
-    back_button = [[InlineKeyboardButton(text="back",callback_data="back")]]
-    back_menu = InlineKeyboardMarkup(keyboard=back_button)
-    return back_menu
-
-
+    back_button =generate_markup([{"back": "back"}])
+    return InlineKeyboardMarkup(keyboard=back_button)

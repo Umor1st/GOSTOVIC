@@ -16,7 +16,7 @@ if api_key=="":
     _exit(1)
 
 # Обращаемся к боту через его api
-gostbot = telebot.TeleBot("API_KEY")
+gostbot = telebot.TeleBot(api_key)
 
 # Импортируем два файла для включения функций бота  
 import handlers, callbacks

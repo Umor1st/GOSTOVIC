@@ -12,7 +12,7 @@ def generate_markup(mk_dict_arr):
 
 
 def markup_main():
-    markup_buttons =generate_markup([{"Cтудент": "Student",
+    markup_buttons = generate_markup([{"Cтудент": "Student",
                        "Ученик": "School"},
                       {"stop": "back"}])
     return InlineKeyboardMarkup(keyboard=markup_buttons)
@@ -21,7 +21,7 @@ def markup_main():
 
 
 def markup_years():
-    markup_buttons =generate_markup([{"2003": "2003",
+    markup_buttons = generate_markup([{"2003": "2003",
                        "2008": "2008",
                        "2018": "2018"},
                       {"back": "back"}])
@@ -31,7 +31,7 @@ def markup_years():
 
 
 def markup_2003():
-    markup_buttons =generate_markup([{"Журнал": "2003_journal",
+    markup_buttons = generate_markup([{"Журнал": "2003_journal",
                        "Книга": "2003_book",
                        "Интернет ресурс": "2003_ethres"},
                       {"Диссертация": "2003_disert",
@@ -44,7 +44,7 @@ def markup_2003():
 
 
 def markup_2008():
-    markup_buttons =generate_markup([{"Журнал": "2008_journal",
+    markup_buttons = generate_markup([{"Журнал": "2008_journal",
                        "Книга": "2008_book",
                        "Интернет ресурс": "2008_ethres"},
                       {"Автореферат": "2008_aftoref",
@@ -57,7 +57,7 @@ def markup_2008():
 
 
 def markup_2018():
-    markup_buttons =generate_markup([{"Журнал": "2018_journal",
+    markup_buttons = generate_markup([{"Журнал": "2018_journal",
                        "Книга": "2018_book",
                        "Интернет ресурс": "2018_ethres"},
                       {"Автореферат": "2018_aftoref",
@@ -70,7 +70,7 @@ def markup_2018():
 
 
 def book_2003():
-    markup_buttons =generate_markup([{"Книга - обыч.": "2003_book_normal"},
+    markup_buttons = generate_markup([{"Книга - обыч.": "2003_book_normal"},
                       {"Том из многотомного издания": "2003_mnogotom"},
                       {"back": "back"}])
 
@@ -80,7 +80,7 @@ def book_2003():
 
 
 def book_mnogotom_2003():
-    markup_buttons =generate_markup([{"По томам": "2003_mnogotom_toms"},
+    markup_buttons = generate_markup([{"По томам": "2003_mnogotom_toms"},
                       {"По частям": "2003_mnogotom_chapters"},
                       {"back": "back"}])
 
@@ -90,7 +90,7 @@ def book_mnogotom_2003():
 
 
 def zakon_2003():
-    markup_buttons =generate_markup([{"Федеральный документ": "2003_zakun_document"},
+    markup_buttons = generate_markup([{"Федеральный документ": "2003_zakun_document"},
                       {"Федеральный закон": "2003_zakun_federation"},
                       {"Федеральный закон(интернет рес.)": "2003_zakun_federation_eth"},
                       {"Постановление": "2003_zakun_postan"},
@@ -102,7 +102,7 @@ def zakon_2003():
 
 
 def book_2008():
-    markup_buttons =generate_markup([{"Книга - Обыч.": "2008_book_normal",
+    markup_buttons = generate_markup([{"Книга - Обыч.": "2008_book_normal",
                        "Книга - ЭБС": "2008_book_EBC"},
                       {"Том из многотомного издания": "2008_tom_iz_mnogotom"},
                       {"back": "back"}])
@@ -113,7 +113,7 @@ def book_2008():
 
 
 def book_2018():
-    markup_buttons =generate_markup([{"Книга - Обыч.": "2018_book_normal"},
+    markup_buttons = generate_markup([{"Книга - Обыч.": "2018_book_normal"},
                       {"Том из многотомного издания": "2018_tom_iz_mnogotom"},
                       {"back": "back"}])
 

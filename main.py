@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 
 import telebot
+import sys
+sys.stdout.reconfigure(encoding='utf-8')
 from telebot.types import ReplyKeyboardMarkup, InlineKeyboardMarkup, InlineKeyboardButton
 from os.path import exists
 from os import _exit
@@ -129,7 +131,7 @@ def journal_result_2003(message):
         result = f"""{a1_f}, {a1_name} {tema} [Текст] / {a1_name} {a1_f} // {journal_name}. — {year}. — № {nomer}. — C. {pages}."""
 
     gostbot.send_message(id_chat, f"Твой ГОСТ готов \\!\n`{result}`", parse_mode="MarkdownV2")
-    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n`/Journal2003`", parse_mode="MarkdownV2",reply_markup=back())
+    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Journal2003", parse_mode="MarkdownV2", reply_markup=back())
     print(result)
     gost_dict[id_chat].clear() 
 
@@ -252,7 +254,7 @@ def book_normal_result_2003(message):
 
 
     gostbot.send_message(id_chat, f"Твой ГОСТ готов \\!\n`{result}`", parse_mode="MarkdownV2")
-    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/BookNormal2003", parse_mode="MarkdownV2",reply_markup=back())
+    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/BookNormal2003", parse_mode="MarkdownV2", reply_markup=back())
     print(result)
     gost_dict[id_chat].clear()
 
@@ -284,7 +286,7 @@ def result_eth_2003(message):
     name = gost_dict[id_chat][0][0].upper() + gost_dict[id_chat][0][1:]
     result = f"""{name} [Электронный ресурс]. — URL: {gost_dict[id_chat][1]} (Дата обращения: {gost_dict[id_chat][2]})."""
     gostbot.send_message(id_chat, f"Твой ГОСТ готов \\!\n`{result}`", parse_mode="MarkdownV2")
-    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Ethernet2003", parse_mode="MarkdownV2",reply_markup=back())
+    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Ethernet2003", parse_mode="MarkdownV2", reply_markup=back())
     print(result)
     gost_dict[id_chat].clear() 
 
@@ -360,7 +362,7 @@ def dissert_result_2003(message):
     result = f"""{dissert_avtor[0]}, {dissert_avtor[1][0]}.{dissert_avtor[2][0]}. {dissert_name} [Текст] : дис. ... {dissert_rang}{dissert_shifr_vac} / {dissert_avtor[0]} {dissert_avtor[1]} {dissert_avtor[2]}. — {dissert_city}, {dissert_year}. — {dissert_pages} с."""
 
     gostbot.send_message(id_chat, f"Твой ГОСТ готов \\!\n`{result}`", parse_mode="MarkdownV2")
-    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Dissertation2003", parse_mode="MarkdownV2",reply_markup=back())
+    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Dissertation2003", parse_mode="MarkdownV2", reply_markup=back())
     print(result)
     gost_dict[id_chat].clear()
 
@@ -435,7 +437,7 @@ def aftoref_result_2003(message):
     result = f"""{aftoref_avtor[0]}, {aftoref_avtor[1][0]}.{aftoref_avtor[2][0]}. {aftoref_name} [Текст] : афтореф. дис. ... {aftoref_rang}{aftoref_shifr_vac} / {aftoref_avtor[0]} {aftoref_avtor[1]} {aftoref_avtor[2]}. — {aftoref_city}, {aftoref_year}. — {aftoref_pages} c."""
 
     gostbot.send_message(id_chat, f"Твой ГОСТ готов \\!\n`{result}`", parse_mode="MarkdownV2")
-    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Aftoreferat2003", parse_mode="MarkdownV2",reply_markup=back())
+    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Aftoreferat2003", parse_mode="MarkdownV2", reply_markup=back())
     print(result)
     gost_dict[id_chat].clear()
 
@@ -510,7 +512,7 @@ def zakon_document_result_2003(message):
     statya = gost_dict[id_chat][7]
     result = f"{name} от {izd_date} № {num_fz}-ФЗ (ред. от {redact_date}) // {who_accept}. — {pechat_date} — № {num} — Ст. {statya}."
     gostbot.send_message(id_chat, f"Твой ГОСТ готов \\!\n`{result}`", parse_mode="MarkdownV2")
-    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\nZakon2003Document", parse_mode="MarkdownV2",reply_markup=back())
+    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Zakon2003Document", parse_mode="MarkdownV2", reply_markup=back())
     print(result)
     gost_dict[id_chat].clear()
 
@@ -584,7 +586,7 @@ def zakon_federation_result_2003(message):
     statya = gost_dict[id_chat][7]
     result = f"Федеральный закон от {izd_date} № {num_fz}-ФЗ (ред. от {redact_date}) «{name}» // {who_accept}. — {pechat_date} — № {num} — Ст. {statya}."
     gostbot.send_message(id_chat, f"Твой ГОСТ готов \\!\n`{result}`", parse_mode="MarkdownV2")
-    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\nZakon2003Federation", parse_mode="MarkdownV2",reply_markup=back())
+    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Zakon2003Federation", parse_mode="MarkdownV2", reply_markup=back())
     print(result)
     gost_dict[id_chat].clear()
 
@@ -634,7 +636,7 @@ def zakon_federation_internet_result_2003(message):
     url = gost_dict[id_chat][4]
     result = f"Федеральный закон от {izd_date} № {num_fz}-ФЗ (ред. от {redact_date}) «{name}» [Электронный ресурс]. — URL: {url}"
     gostbot.send_message(id_chat, f"Твой ГОСТ готов \\!\n`{result}`", parse_mode="MarkdownV2")
-    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\nZakon2003FederationInternet", parse_mode="MarkdownV2",reply_markup=back())
+    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Zakon2003FederationInternet", parse_mode="MarkdownV2", reply_markup=back())
     print(result)
     gost_dict[id_chat].clear()
 
@@ -717,7 +719,7 @@ def zakon_postan_result_2003(message):
     statya = gost_dict[id_chat][8]
     result = f"Постановление {who_postan} от {izd_date} № {num_postan} (ред. от {redact_date}) «{name}» // {who_accept}. — {pechat_date} — № {num} — Ст. {statya}."
     gostbot.send_message(id_chat, f"Твой ГОСТ готов \\!\n`{result}`", parse_mode="MarkdownV2")
-    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\nZakon2003Postanovlenie", parse_mode="MarkdownV2",reply_markup=back())
+    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Zakon2003Postanovlenie", parse_mode="MarkdownV2", reply_markup=back())
     print(result)
     gost_dict[id_chat].clear()
 
@@ -817,7 +819,7 @@ def book_mnogotomnic_toms_result_2003(message):
 
 
     gostbot.send_message(id_chat, f"Твой ГОСТ готов \\!\n`{result}`", parse_mode="MarkdownV2")
-    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Mnogotomnik2003toms", parse_mode="MarkdownV2",reply_markup=back())
+    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Mnogotomnik2003toms", parse_mode="MarkdownV2", reply_markup=back())
     print(result)
     gost_dict[id_chat].clear()
 
@@ -931,7 +933,7 @@ def book_mnogotomnic_chapters_result_2003(message):
 
 
     gostbot.send_message(id_chat, f"Твой ГОСТ готов \\!\n`{result}`", parse_mode="MarkdownV2")
-    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Mnogotomnik2003chapters", parse_mode="MarkdownV2",reply_markup=back())
+    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Mnogotomnik2003chapters", parse_mode="MarkdownV2", reply_markup=back())
     print(result)
     gost_dict[id_chat].clear()
 
@@ -1010,7 +1012,7 @@ def journal_result_2008(message):
         result = f"""{a1_f} {a1_name} {tema} // {journal_name}. {year}. № {nomer}. C. {pages}."""
 
     gostbot.send_message(id_chat, f"Твой ГОСТ готов \\!\n`{result}`", parse_mode="MarkdownV2")
-    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Journal2008", parse_mode="MarkdownV2")
+    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Journal2008", parse_mode="MarkdownV2", reply_markup=back())
     print(result)
     gost_dict[id_chat].clear()
 
@@ -1137,7 +1139,7 @@ def book_normal_result_2008(message):
  
 
     gostbot.send_message(id_chat, f"Твой ГОСТ готов \\!\n`{result}`", parse_mode="MarkdownV2")
-    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/BookNormal2008", parse_mode="MarkdownV2",reply_markup=back())
+    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/BookNormal2008", parse_mode="MarkdownV2", reply_markup=back())
     print(result)
     gost_dict[id_chat].clear()
 
@@ -1279,7 +1281,7 @@ def book_EBC_result_2008(message):
  
 
     gostbot.send_message(id_chat, f"Твой ГОСТ готов \\!\n`{result}`", parse_mode="MarkdownV2")
-    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/BookEBC2008", parse_mode="MarkdownV2",reply_markup=back())
+    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/BookEBC2008", parse_mode="MarkdownV2", reply_markup=back())
     print(result)
     gost_dict[id_chat].clear()
 
@@ -1361,7 +1363,7 @@ def result_eth_2008(message):
     date = gost_dict[id_chat][7]
     result = f"""{name} [Электронный ресурс]{reissues} / {responsibility} {city}: {publish}, {year}. URL: {url}. (дата обращения: {date})"""
     gostbot.send_message(id_chat, f"Твой ГОСТ готов \\!\n`{result}`", parse_mode="MarkdownV2")
-    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Ethernet2008", parse_mode="MarkdownV2",reply_markup=back())
+    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Ethernet2008", parse_mode="MarkdownV2", reply_markup=back())
     print(result)
     gost_dict[id_chat].clear() 
 
@@ -1442,7 +1444,7 @@ def dissert_result_2008(message):
     result = f"""{dissert_avtor[0]} {dissert_avtor[1][0]}.{dissert_avtor[2][0]}. {dissert_name}: спец. {dissert_shifr_vac} «{dissert_vac_name}»: дис. ... {dissert_rang} {dissert_city}, {dissert_year}. {dissert_pages} с."""
 
     gostbot.send_message(id_chat, f"Твой ГОСТ готов \\!\n`{result}`", parse_mode="MarkdownV2")
-    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Dissertation2008", parse_mode="MarkdownV2",reply_markup=back())
+    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Dissertation2008", parse_mode="MarkdownV2", reply_markup=back())
     print(result)
     gost_dict[id_chat].clear()
 
@@ -1523,7 +1525,7 @@ def aftoref_result_2008(message):
     result = f"""{aftoref_avtor.split()[0]} {aftoref_avtor.split()[1][0]}.{aftoref_avtor.split()[2][0]}. {aftoref_name}: спец. {aftoref_shifr_vac} «{aftoref_vac_name}»: автореф. дис. ... {aftoref_rang} {aftoref_city}, {aftoref_year}. {aftoref_pages} с."""
 
     gostbot.send_message(id_chat, f"Твой ГОСТ готов \\!\n`{result}`", parse_mode="MarkdownV2")
-    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Aftoreferat2008", parse_mode="MarkdownV2",reply_markup=back())
+    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Aftoreferat2008", parse_mode="MarkdownV2", reply_markup=back())
     print(result)
     gost_dict[id_chat].clear()
 
@@ -1651,7 +1653,7 @@ def book_mnogotomnic_toms_result_2008(message):
 
 
     gostbot.send_message(id_chat, f"Твой ГОСТ готов \\!\n`{result}`", parse_mode="MarkdownV2")
-    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Mnogotomnik2008", parse_mode="MarkdownV2",reply_markup=back())
+    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Mnogotomnik2008", parse_mode="MarkdownV2", reply_markup=back())
     print(result)
     gost_dict[id_chat].clear()
 
@@ -1737,7 +1739,7 @@ def journal_result_2018(message):
         result = f"""{a1_f}, {a1_name} {tema} / {a1_name} {a1_f} // {journal_name}. — {year}. — № {nomer}. — C. {pages}."""
 
     gostbot.send_message(id_chat, f"Твой ГОСТ готов \\!\n`{result}`", parse_mode="MarkdownV2")
-    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Journal2018", parse_mode="MarkdownV2")
+    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Journal2018", parse_mode="MarkdownV2", reply_markup=back())
     print(result)
     gost_dict[id_chat].clear()
 
@@ -1861,7 +1863,7 @@ def book_normal_result_2018(message):
         result = f"""{a1_f}, {a1_name} {name}{add_inf} / {a1_name} {a1_f}. {responsibility}{reissues}{city} : {publish}, {year}. — {pages} c."""
 
     gostbot.send_message(id_chat, f"Твой ГОСТ готов \\!\n`{result}`", parse_mode="MarkdownV2")
-    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/BookNormal2018", parse_mode="MarkdownV2",reply_markup=back())
+    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/BookNormal2018", parse_mode="MarkdownV2", reply_markup=back())
     print(result)
     gost_dict[id_chat].clear()
 
@@ -1927,7 +1929,7 @@ def result_eth_2018(message):
     date = gost_dict[id_chat][5]
     result = f"""{name}{reissues} {city}, {year}. URL: {url} (дата обращения: {date})."""
     gostbot.send_message(id_chat, f"Твой ГОСТ готов \\!\n`{result}`", parse_mode="MarkdownV2")
-    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Ethernet2018", parse_mode="MarkdownV2",reply_markup=back())
+    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Ethernet2018", parse_mode="MarkdownV2", reply_markup=back())
     print(result)
     gost_dict[id_chat].clear() 
 
@@ -2008,7 +2010,7 @@ def dissert_result_2018(message):
     result = f"""{dissert_avtor.split()[0]}, {dissert_avtor.split()[1][0]}.{dissert_avtor.split()[2][0]}. {dissert_name}: спец. {dissert_shifr_vac} «{dissert_vac_name}»: автореф. дис. ... {dissert_rang} / {dissert_avtor}. — {dissert_city}, {dissert_year}. — {dissert_pages} с."""
 
     gostbot.send_message(id_chat, f"Твой ГОСТ готов \\!\n`{result}`", parse_mode="MarkdownV2")
-    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Dissertation2018", parse_mode="MarkdownV2",reply_markup=back())
+    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Dissertation2018", parse_mode="MarkdownV2", reply_markup=back())
     print(result)
     gost_dict[id_chat].clear()
 
@@ -2089,7 +2091,7 @@ def aftoref_result_2018(message):
     result = f"""{aftoref_avtor.split()[0]}, {aftoref_avtor.split()[1][0]}.{aftoref_avtor.split()[2][0]}. {aftoref_name}: спец. {aftoref_shifr_vac} «{aftoref_vac_name}»: автореф. дис. ... {aftoref_rang} / {aftoref_avtor}. — {aftoref_city}, {aftoref_year}. — {aftoref_pages} с."""
 
     gostbot.send_message(id_chat, f"Твой ГОСТ готов \\!\n`{result}`", parse_mode="MarkdownV2")
-    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Aftoreferat2018", parse_mode="MarkdownV2",reply_markup=back())
+    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Aftoreferat2018", parse_mode="MarkdownV2", reply_markup=back())
     print(result)
     gost_dict[id_chat].clear()
 
@@ -2218,7 +2220,7 @@ def book_mnogotomnic_toms_result_2018(message):
 
 
     gostbot.send_message(id_chat, f"Твой ГОСТ готов \\!\n`{result}`", parse_mode="MarkdownV2")
-    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Mnogotomnik2018", parse_mode="MarkdownV2",reply_markup=back())
+    gostbot.send_message(id_chat, f"Чтобы воспользоваться этим оформлением снова введите:\n/Mnogotomnik2018", parse_mode="MarkdownV2", reply_markup=back())
     print(result)
     gost_dict[id_chat].clear()
 
